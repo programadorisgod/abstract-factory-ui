@@ -1,0 +1,113 @@
+.container {
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    width: 350px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+
+}
+
+.header_form {
+    margin: 10px 0px;
+}
+
+button,
+input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+
+
+input, select
+ {
+    background-color: #2a2a2a;
+    color: white;
+    border: 1px solid #444;
+}
+select {
+    cursor: pointer;
+    width: auto;
+    padding: 0.3rem;
+    border-radius: 10px;
+}
+
+label {
+    font-size: 14px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #2a2a2a;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    width: 300px;
+    text-align: center;
+}
+.modal.active {
+    display: block;
+}
+
+.windows_button{
+    background: #007bff;
+
+    &:hover {
+        background-color: #0056b3;
+    }
+}
+.windows_input{
+    background: #007bff60;
+}
+
+.android_input{
+    background: #00913f60;
+    border-color: #000;
+}
+.android_button {
+    background: #00913f;
+    border-color: #000;
+
+     &:hover {
+        background-color: #00913f60;
+    }
+
+}
+
+.apple_button{
+    background: #ff5733;
+    color: #fff;
+    &:hover {
+        background-color: #ff573360;
+    }
+}
+
+.apple_input{
+    background: #ff573360;
+    color: #fff;
+}
+
+@media (width <= 760px) {
+    body{
+        display: flex;
+        flex-direction: column;
+    }
+}
