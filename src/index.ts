@@ -12,6 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
   app.render();
 });
 
-// body.addEventListener("click", (_) => {
-//   document.querySelector<HTMLAudioElement>("audio")?.play();
-// });
+body.addEventListener("click", (_) => {
+  document.querySelector<HTMLAudioElement>("audio")?.play();
+});
