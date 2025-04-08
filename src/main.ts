@@ -1,3 +1,4 @@
+import { Constants } from "./constants/constants";
 import { GUIFactory } from "./domain/factory/ui-factory";
 import { IButton } from "./domain/ui/interfaces/button";
 import { IInput } from "./domain/ui/interfaces/input";
@@ -56,26 +57,52 @@ export class Application {
         document.querySelector<HTMLDivElement>("#modal-message");
       const modal: HTMLDivElement | null =
         document.querySelector<HTMLDivElement>("#modal");
+      const modalNotification: HTMLDivElement | null =
+        document.querySelector<HTMLDivElement>("#modal-notification");
 
-      if (!modal) {
-        return
-      }
+      const toggleModal: HTMLButtonElement | null =
+        modal!.querySelector<HTMLButtonElement>("#toggle_modal");
 
-     const toggleModal: HTMLButtonElement | null =  modal.querySelector<HTMLButtonElement>("#toggle_modal");
+      if (!toggleModal) return;
 
-     if (!toggleModal) return
-     
-
-     toggleModal.className = buttonElement.className
+      toggleModal.className = buttonElement.className;
 
       fetchProcessPayment(body)
         .then((result) => {
-          if (result.success) {
+          if (result.success && modalMessage && modal) {
+            modalMessage.textContent = `Pago exitoso con ${result.value?.payment}`;
+            modal.classList.add("active");
 
-            if (modalMessage && modal) {
-              modalMessage.textContent = `Pago exitoso con ${result.value?.payment}`;
-              modal.classList.add("active");
-            }
+            modalNotification?.classList.add("active");
+
+            document
+              .querySelector<HTMLButtonElement>("#toggle_modal_notification")
+              ?.addEventListener("click", async () => {
+                const selectNotification: HTMLSelectElement | null =
+                  document.querySelector<HTMLSelectElement>(
+                    "#select-notification"
+                  );
+
+                try {
+                  const response = await fetch(
+                    `${Constants.BASE_URL}/send-notification/` +
+                      selectNotification?.value,
+                    {
+                      method: "GET",
+                    }
+                  );
+
+                  if (!response.ok) {
+                    alert("Error al enviar la notificación");
+                    return;
+                  }
+
+                  alert("Revisa tu dispositivo para ver la notificación");
+                } catch (error) {
+                  console.error(error);
+                }
+              });
+
             inputElement.value = "";
           }
         })

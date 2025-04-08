@@ -1,43 +1,58 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frotadores 💡</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Frotadores 💡</title>
-</head>
+  <body>
+    <header>
+      <h1>Pasarela de pagos</h1>
+    </header>
 
-<body>
-  <header>
-    <h1>Pasarela de pagos</h1>
-  </header>
-
-
-  <main>
-    <audio src="./public/pasarelaa.mp3" loop ></audio>
-    <div id="modal" class="modal">
-      <p id="modal-message"></p>
-      <button id="toggle_modal" onclick="document.getElementById('modal').classList.remove('active')">Cerrar</button>
-    </div>
-    <div id="app" class="container">
-      <form action="">
-        <header class="header_form">
-          <h2>Frotadores 💡</h2>
-        </header>
-        <main class="main_form" id="form">
-          <label class="label_select" for="methods">Métodos de pago</label>
-          <select>
-            <option value="credit-card">Tarjeta credito</option>
-            <option value="debit-card">Tarjeta debito</option>
-            <option value="paypal">Paypal</option>
-          </select>
-        </main>
-      </form>
-    </div>
-
-  </main>
-  <script type="module" src="/src/index.ts"></script>
-</body>
-
+    <main>
+      <audio src="./pasarelaa.mp3" loop></audio>
+      <div id="modal-notification" class="modal">
+        <p>Elija tipo de notificacion</p>
+        <select id="select-notification">
+          <option value="sms">Mensaje de texto</option>
+          <option value="wpp" selected>Whatsapp</option>
+          <option value="email">Email</option>
+        </select>
+        <button
+          id="toggle_modal_notification"
+          onclick="document.getElementById('modal-notification').classList.remove('active')"
+        >
+          Ok
+        </button>
+      </div>
+      <div id="modal" class="modal">
+        <p id="modal-message"></p>
+        <button
+          id="toggle_modal"
+          onclick="document.getElementById('modal').classList.remove('active')"
+        >
+          Cerrar
+        </button>
+      </div>
+      <div id="app" class="container">
+        <form action="">
+          <header class="header_form">
+            <h2>Frotadores 💡</h2>
+          </header>
+          <main class="main_form" id="form">
+            <label class="label_select" for="methods">Métodos de pago</label>
+            <select>
+              <option value="credit-card">Tarjeta credito</option>
+              <option value="debit-card">Tarjeta debito</option>
+              <option value="paypal">Paypal</option>
+            </select>
+          </main>
+        </form>
+      </div>
+    </main>
+    <script type="module" src="/src/index.ts"></script>
+  </body>
 </html>
