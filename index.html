@@ -14,12 +14,23 @@
 
     <main>
       <audio src="./pasarelaa.mp3" loop></audio>
+      <div id="modal-notification-content" class="modal">
+        <p>Configuracion de notificacion</p>
+        <div id="notification-content"></div>
+        <button
+          id="toggle_modal_notification_content"
+          onclick="document.getElementById('modal-notification-content').classList.remove('active')"
+        >
+          Ok
+        </button>
+      </div>
       <div id="modal-notification" class="modal">
         <p>Elija tipo de notificacion</p>
         <select id="select-notification">
           <option value="sms">Mensaje de texto</option>
           <option value="wpp" selected>Whatsapp</option>
           <option value="email">Email</option>
+          <option value="push">Mensaje push</option>
         </select>
         <button
           id="toggle_modal_notification"

@@ -1,9 +1,22 @@
 import { Constants } from "../constants/constants";
+import { Format, Theme } from "../enums/enums";
 import { Failure, ResultResponse, Succes } from "./result";
+
+export type pdfData = {
+  title: string;
+  footerMessage: string;
+  includeTimeStamp: boolean;
+  includeLogo: boolean;
+  includePaymentDetails: boolean;
+  includeUserInfo: boolean;
+  theme: Theme;
+  format: Format;
+};
 
 export type Body = {
   type: string;
   amount: number;
+  pdfData: pdfData;
 };
 
 export type response = {
