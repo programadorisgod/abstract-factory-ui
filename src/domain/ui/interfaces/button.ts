@@ -1,3 +1,3 @@
 export interface IButton {
-    render():HTMLButtonElement
+  render(onClick?: () => void): HTMLButtonElement;
 }

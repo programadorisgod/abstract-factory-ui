@@ -44,10 +44,8 @@ export class Application {
     const footerInput: HTMLInputElement = this._footerInput.render("text");
     footerInput.placeholder = "Descripcion del Reporte";
 
-    const buttonElement: HTMLButtonElement = this._button.render();
-    buttonElement.textContent = "Pagar";
-
-    buttonElement.addEventListener("click", () => {
+    function onClick() {
+      if (!container) return;
       const form: HTMLFormElement | null =
         container.querySelector<HTMLFormElement>("#form");
 
@@ -219,7 +217,9 @@ export class Application {
             modal.classList.add("active");
           }
         });
-    });
+    }
+
+    const buttonElement = this._button.render(onClick);
 
     const includeLogoRadio = createSingleRadio("Incluir logo", "includeLogo");
     const includePaymentDetailsRadio = createSingleRadio(
